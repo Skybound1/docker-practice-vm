@@ -1,0 +1,16 @@
+---
+- name: Install jq
+  apt:
+    name: jq
+    state: present
+
+- name: Install reg
+  get_url:
+    url: "https://github.com/genuinetools/reg/releases/download/v0.16.0/reg-linux-amd64"
+    dest: /usr/local/bin/reg
+    mode: '0755'
+    checksum: sha256:0470b6707ac68fa89d0cd92c83df5932c9822df7176fcf02d131d75f74a36a19
+
+- name: Install dive
+  apt:
+    deb: https://github.com/wagoodman/dive/releases/download/v0.7.2/dive_0.7.2_linux_amd64.deb

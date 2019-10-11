@@ -1,0 +1,17 @@
+---
+- name: Upload files
+  copy:
+    src: "{{ item }}"
+    dest: /root/networking/
+  with_items:
+    - docker-compose.yml
+    - sender
+    - receiver
+    - exercises.txt
+    - cheat-sheet.txt
+
+- name: Bring up containers
+  docker_compose:
+    project_src: /root/networking/
+    state: present
+    build: yes

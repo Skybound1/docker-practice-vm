@@ -1,0 +1,7 @@
+Each flag is a UUID for example: 7153e7e9-5906-4a72-abd6-362a26878b0c. If you want to validate you have the correct one, you do have the source code :P
+
+1) For each tagged version of supersecretimage on the local registry at localhost:5000, find the flag
+
+Bonus:
+
+2) Experiment and play with the dive tool upon the images

@@ -1,0 +1,13 @@
+Complete this exercise within the kernel container within the capabilities folder:
+
+docker-compose exec kernel bash
+
+1) Compile and load a kernel module to copy the contents of /etc/shadow to a file in /tmp
+
+Bonus:
+
+Complete this exercise within the mitm container within the networking folder:
+
+docker-compose exec mitm bash
+
+2) MitM the connection between the sender and receiver again, however this time do it from WITHIN a pre-existing container with a default security configuration

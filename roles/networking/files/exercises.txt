@@ -1,0 +1,3 @@
+1) Create two containers sharing the same network stack, and communicate between the containers over the network using localhost as the destination host
+
+2) Intercept communications between the netstack receiver and sender containers with a NEW well placed skybound/net-utils container

@@ -1,0 +1,8 @@
+Copy over file into container:
+
+docker cp <file> <container id or name>:<path in container>
+
+
+Load a kernel module
+
+insmod <compiled kernel file>

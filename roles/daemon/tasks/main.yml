@@ -1,0 +1,26 @@
+---
+- name: Add TCP listener to systemd startup file
+  replace:
+    path: /lib/systemd/system/docker.service
+    regexp: "/usr/bin/dockerd -H fd://"
+    replace: "/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H fd://"
+
+- name: Restart docker
+  systemd:
+    name: docker
+    state: restarted
+    daemon_reload: yes
+
+- name: Upload files
+  copy:
+    src: "{{ item }}"
+    dest: /root/daemon/
+  with_items:
+    - docker-compose.yml
+    - exercises.txt
+    - cheat-sheet.txt
+
+- name: Bring up container
+  docker_compose:
+    project_src: /root/daemon/
+    state: present

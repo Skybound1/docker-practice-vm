@@ -1,0 +1,18 @@
+---
+- name: Upload files
+  copy:
+    src: "{{ item }}"
+    dest: /root/capabilities/
+  with_items:
+    - docker-compose.yml
+    - Dockerfile
+    - exploit.c
+    - Makefile
+    - exercises.txt
+    - cheat-sheet.txt
+
+- name: Bring up container
+  docker_compose:
+    project_src: /root/capabilities/
+    state: present
+    build: yes

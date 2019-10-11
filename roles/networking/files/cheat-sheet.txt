@@ -1,0 +1,7 @@
+Share network stacks with container
+
+docker run --net contianer:<container id or name> <image> <command>
+
+Dump traffic on an interface
+
+tcpdump -i <interface> -A -s 0

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - docker
+    - daemon
+    - registry
+    - networking
+    - capabilities
+    - tools

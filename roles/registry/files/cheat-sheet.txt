@@ -1,0 +1,13 @@
+NOTE: For localhost:5000 you will need to add the -f flag to allow the connection to be plaintext
+
+List images and tags
+
+reg ls <server>
+
+Get the manifest for an image
+
+reg manifest <server>/<image>:<tag>
+
+Get a layer of an image
+
+reg layer <server>/<image>@sha256:<hash>

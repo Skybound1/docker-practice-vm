@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  sender:
+    build: sender
+    restart: always
+    environment:
+      FLAG: this-is-the-flag
+
+  receiver:
+    build: receiver
+    restart: always
+
+  mitm:
+    image: ubuntu
+    command: sleep 100d
+    restart: always

@@ -1,0 +1,17 @@
+---
+- name: Get log rotate docker image
+  docker_image:
+    name: blacklabelops/logrotate
+
+- name: Run log rotate container
+  docker_container:
+    name: logrotate
+    image: blacklabelops/logrotate
+    restart_policy: always
+    volumes:
+      - "/var/lib/docker/containers:/var/lib/docker/containers"
+    env:
+      LOGS_DIRECTORIES: /var/lib/docker/containers
+      LOGROTATE_INTERVAL: hourly
+      LOGROTATE_SIZE: 100M
+      LOGROTATE_COMPRESSION: compress

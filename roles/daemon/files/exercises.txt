@@ -1,0 +1,9 @@
+These exercises should be done from within a shell in the "backdoor" container.
+
+1) Access the docker daemon via the UNIX socket mounted into the container, and list running containers
+2) Access the docker daemon via the TCP socket on the network, and list running containers HINT: The host is the gateway for the container
+3) Using either the UNIX socket or the TCP socket, leverage the docker daemon to print out the hosts /etc/shadow file
+
+Bonus:
+
+4) Using either the UNIX socket or the TCP socket, break out of the container, and have a shell on the host without ANY of the segregations docker puts in place (this includes network segregation, PID segregation, etc)

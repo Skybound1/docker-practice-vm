@@ -1,0 +1,11 @@
+Spawn a shell within the backdoor container (run within the daemon folder):
+
+docker-compose exec backdoor sh
+
+Connect to a docker daemon through a non standard socket:
+
+docker -H <tcp/unix url> <docker commands>
+
+Mount host files within a container:
+
+docker run -v <host folder>:<container folder> <image> <command>
