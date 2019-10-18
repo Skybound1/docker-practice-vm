@@ -1,0 +1,21 @@
+1) Spawn an initial container
+
+docker run --rm -ti skybound/net-utils bash
+
+2) In a _separate_ terminal, obtain the container id of the container created within step 1
+
+docker ps
+
+3) Spawn a second container that attaches onto the network stack of the first container
+
+docker run --rm -ti --net container:<container id> skybound/net-utils bash
+
+4) Spawn a netcat listener in the first container
+
+nc -nlvp 8080
+
+5) Connect to the listening netcat from the second container
+
+nc -v localhost 8080
+
+6) Type random gibberish and press enter in both terminals, and validate the data appears in the other terminal

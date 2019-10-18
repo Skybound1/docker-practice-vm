@@ -1,0 +1,28 @@
+1) List available tags
+
+reg ls -f localhost:5000
+
+2) Obtain the manifest of the first image and get the digest of the config
+
+reg manifest -f localhost:5000/supersecretimage:v1
+
+3) Download the config and observe that a file was added to /lib/udev/docker.txt within the last layer
+
+reg layer -f localhost:5000/supersecretimage@<config digest from manifest> | jq
+
+4) Get the digest of the bottom layer from the manifest
+
+5) Download the bottom layer
+
+reg layer -f localhost:5000/supersecretimage@<layer digest from manifest> > layer.tar.gz
+
+6) Extract layer and cat lib/udev/docker.txt
+
+tar zxvf layer.tar.gz && cat lib/udev/docker.txt
+
+
+7) For the second image, the same steps can be followed to get to the config which contains the flag
+
+8) For the final flag, the config shows a file was added in the second to last layer and then deleted in the final, as such obtain the digest of the second from bottom layer from the manifest
+
+9) Download the layer as before, extract and view the contents of bin/something.txt
