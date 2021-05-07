@@ -4,6 +4,18 @@
     name: python3-pip
     update_cache: yes
 
+- name: upgrade pip
+  pip:
+    name: pip
+    state: latest
+    executable: pip3
+
+- name: upgrade crypto
+  pip:
+    name: cryptography
+    state: latest
+    executable: pip3
+
 - name: Install docker-compose
   pip:
     name: docker-compose
